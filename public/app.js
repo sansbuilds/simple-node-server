@@ -15,6 +15,7 @@ function addMessage(text, role) {
 function responseFor(command) {
   const [name, ...argumentsList] = command.trim().split(/\s+/);
   const argument = argumentsList.join(' ');
+  const message = command.trim().toLowerCase().replace(/[!?.,]+$/g, '');
 
   switch (name.toLowerCase()) {
     case '/help':
@@ -27,11 +28,29 @@ function responseFor(command) {
       return 'SimpleServer is a dependency-free static server built with Node\'s built-in http module.';
     case '/echo':
       return argument ? argument : 'Usage: /echo <text>';
-    default:
-      return name.startsWith('/')
-        ? `I do not know ${name}. Try /help to see available commands.`
-        : 'I can respond to commands. Try /help, or say something with /echo.';
   }
+
+  if (/^(hello|hi|hey|hiya)$/.test(message)) {
+    return 'Hello! Nice to meet you. How can I help?';
+  }
+  if (/^(good morning|good afternoon|good evening)$/.test(message)) {
+    return `Good ${message.slice(5)}! How is your day going?`;
+  }
+  if (/^(how are you|how are you doing)$/.test(message)) {
+    return 'I am doing great and ready to help. Try /help for commands.';
+  }
+  if (/^(thanks|thank you|thx)$/.test(message)) {
+    return 'You are welcome!';
+  }
+  if (/^(bye|goodbye|see you)$/.test(message)) {
+    return 'Goodbye! Come back whenever you need me.';
+  }
+  if (/^(who are you|what is your name)$/.test(message)) {
+    return 'I am the SimpleServer assistant, a small browser-based chat helper.';
+  }
+  return name.startsWith('/')
+    ? `I do not know ${name}. Try /help to see available commands.`
+    : 'I can respond to greetings and simple questions. Try saying “hello” or type /help for commands.';
 }
 
 function runCommand(command) {
