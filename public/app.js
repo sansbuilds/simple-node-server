@@ -53,7 +53,22 @@ function responseFor(command) {
     : 'I can respond to greetings and simple questions. Try saying “hello” or type /help for commands.';
 }
 
-function runCommand(command) {
+async function getAssistantReply(command) {
+  const localReply = responseFor(command);
+  if (command.trim().startsWith('/') || localReply !== 'I can respond to greetings and simple questions. Try saying “hello” or type /help for commands.') {
+    return localReply;
+  }
+  const response = await fetch('/api/chat', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: command })
+  });
+  const result = await response.json();
+  if (!response.ok) throw new Error(result.error || 'Assistant unavailable');
+  return result.reply;
+}
+
+async function runCommand(command) {
   const trimmedCommand = command.trim();
   if (!trimmedCommand) return;
   addMessage(trimmedCommand, 'user');
@@ -62,7 +77,11 @@ function runCommand(command) {
     addMessage('Chat cleared. Try /help whenever you need a hand.', 'assistant');
     return;
   }
-  addMessage(responseFor(trimmedCommand), 'assistant');
+  try {
+    addMessage(await getAssistantReply(trimmedCommand), 'assistant');
+  } catch (error) {
+    addMessage(`${error.message} Try a basic greeting or /help for local commands.`, 'assistant');
+  }
 }
 
 form.addEventListener('submit', (event) => {
