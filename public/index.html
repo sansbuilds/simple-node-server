@@ -32,6 +32,37 @@
       </div>
     </main>
 
+    <section id="chat" class="chat-section">
+      <div class="container chat-layout">
+        <div class="chat-intro">
+          <p class="eyebrow">Command center</p>
+          <h2>Talk to your server.</h2>
+          <p>Try a command below or type your own message. The assistant runs locally in your browser, so there is no account or setup required.</p>
+          <div class="command-list" aria-label="Available commands">
+            <button class="command-chip" type="button" data-command="/help">/help</button>
+            <button class="command-chip" type="button" data-command="/status">/status</button>
+            <button class="command-chip" type="button" data-command="/time">/time</button>
+            <button class="command-chip" type="button" data-command="/about">/about</button>
+          </div>
+        </div>
+        <div class="chat-box" aria-label="Command chat">
+          <div class="chat-header">
+            <div>
+              <strong>SimpleServer assistant</strong>
+              <span><i class="status-dot"></i>Ready for commands</span>
+            </div>
+            <button class="clear-chat" type="button" data-command="/clear" aria-label="Clear chat">Clear</button>
+          </div>
+          <div class="messages" id="messages" role="log" aria-live="polite"></div>
+          <form class="chat-form" id="chat-form">
+            <label class="sr-only" for="command-input">Type a command</label>
+            <input id="command-input" name="command" type="text" placeholder="Type /help to see commands..." autocomplete="off" />
+            <button class="send-button" type="submit" aria-label="Send command">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
     <section id="about" class="section">
       <div class="container grid">
         <div class="card">
@@ -52,5 +83,6 @@
     <footer class="site-footer">
       <div class="container">Made with ♥ — open the project in your editor to customize.</div>
     </footer>
+    <script src="/app.js" defer></script>
   </body>
 </html>
