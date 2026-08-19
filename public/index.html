@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simple Node Server</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <h1 class="logo">Simple<span class="accent">Server</span></h1>
+        <nav class="nav"><a href="#">Home</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+      </div>
+    </header>
+
+    <main class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <h2>Fast & Minimal Node.js Static Server</h2>
+          <p>Lightweight server using only Node's built-in `http` module — perfect for demos and quick prototypes.</p>
+          <div class="actions">
+            <a class="btn primary" href="#about">Get Started</a>
+            <a class="btn" href="#contact">View Source</a>
+          </div>
+        </div>
+        <aside class="info">
+          <h3>Live Edit</h3>
+          <p>Edit <strong>public/index.html</strong> or add assets to <strong>public/</strong> — refresh to see changes.</p>
+        </aside>
+      </div>
+    </main>
+
+    <section id="about" class="section">
+      <div class="container grid">
+        <div class="card">
+          <h3>Why this server?</h3>
+          <p>It's dependency-free and tiny — run with `node server.js` and serve static files from the <code>public/</code> folder.</p>
+        </div>
+        <div class="card">
+          <h3>Perfect for</h3>
+          <ul>
+            <li>Demos & prototypes</li>
+            <li>Teaching Node basics</li>
+            <li>Simple static sites</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container">Made with ♥ — open the project in your editor to customize.</div>
+    </footer>
+  </body>
+</html>
