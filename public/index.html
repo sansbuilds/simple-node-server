@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#0b0e16" />
-    <title>Nova AI Assistant</title>
+    <meta name="theme-color" content="#fff8f8" />
+    <title>Aira | Your little AI sidekick</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -13,12 +13,12 @@
   <body>
     <div class="app-shell">
       <header class="app-header">
-        <a class="brand" href="/" aria-label="Nova home">
-          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
-          <span class="brand-name">nova<span>ai</span></span>
+        <a class="brand" href="/" aria-label="Aira home">
+          <span class="brand-mark" aria-hidden="true"><span>✦</span></span>
+          <span class="brand-name">aira</span>
         </a>
         <div class="header-actions">
-          <span class="powered-by"><span class="online-dot"></span> Powered by Groq</span>
+          <span class="powered-by"><span class="online-dot"></span> Ready to chat</span>
           <button class="clear-chat icon-button" type="button" aria-label="Clear chat" title="Clear chat">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3" /></svg>
             <span>Clear</span>
@@ -29,14 +29,14 @@
       <main class="chat-main">
         <section class="welcome-panel" id="welcome-panel" aria-labelledby="welcome-title">
           <div class="welcome-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
-          <p class="eyebrow">Your thoughtful sidekick</p>
-          <h1 id="welcome-title">What are we<br /><em>curious</em> about?</h1>
-          <p class="welcome-copy">Learn something new, shape an idea, or make progress on the thing in front of you.</p>
+          <p class="eyebrow">Your little AI sidekick</p>
+          <h1 id="welcome-title">Hi, I'm<br /><em>Aira ✨</em></h1>
+          <p class="welcome-copy">Ask me anything, explore an idea, or let me help you figure something out.</p>
           <div class="suggestions" aria-label="Suggested prompts">
             <button class="suggestion-card" type="button" data-prompt="Explain something to me: how do airplanes stay in the air?"><span class="suggestion-icon warm">✦</span><span><strong>Explain something</strong><small>Make a complex idea simple</small></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg></button>
-            <button class="suggestion-card" type="button" data-prompt="Help me write a clean Python function for a practical task."><span class="suggestion-icon cool">&lt;/&gt;</span><span><strong>Help me write code</strong><small>Build, debug, or improve it</small></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg></button>
-            <button class="suggestion-card" type="button" data-prompt="Teach me a useful concept in a clear, beginner-friendly way."><span class="suggestion-icon mint">◌</span><span><strong>Teach me a concept</strong><small>Learn at exactly your pace</small></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg></button>
-            <button class="suggestion-card" type="button" data-prompt="Help me brainstorm five fresh ideas for a project I am planning."><span class="suggestion-icon violet">⌁</span><span><strong>Brainstorm an idea</strong><small>Turn a spark into momentum</small></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg></button>
+            <button class="suggestion-card" type="button" data-prompt="Help me brainstorm five fresh ideas for a project I am planning."><span class="suggestion-icon cool">💡</span><span><strong>Help me brainstorm</strong><small>Turn a spark into momentum</small></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg></button>
+            <button class="suggestion-card" type="button" data-prompt="Teach me a useful concept in a clear, beginner-friendly way."><span class="suggestion-icon mint">📚</span><span><strong>Teach me a concept</strong><small>Learn at exactly your pace</small></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg></button>
+            <button class="suggestion-card" type="button" data-prompt="Help me write a clean Python function for a practical task."><span class="suggestion-icon violet">💻</span><span><strong>Help me with code</strong><small>Build, debug, or improve it</small></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg></button>
           </div>
         </section>
         <section class="conversation-panel" aria-label="Conversation"><div class="messages" id="messages" role="log" aria-live="polite" aria-relevant="additions"></div></section>
@@ -44,8 +44,8 @@
 
       <footer class="composer-wrap">
         <form class="chat-form" id="chat-form">
-          <label class="sr-only" for="command-input">Ask Nova anything</label>
-          <textarea id="command-input" name="message" rows="1" placeholder="Ask me anything..." autocomplete="off"></textarea>
+          <label class="sr-only" for="command-input">Ask Aira anything</label>
+          <textarea id="command-input" name="message" rows="1" placeholder="Ask Aira anything..." autocomplete="off"></textarea>
           <button class="send-button" type="submit" aria-label="Send message" title="Send message"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 14-7-4 14-3-6-7-1Z" /><path d="m12 13 7-8" /></svg></button>
         </form>
         <p class="composer-hint"><kbd>Enter</kbd> to send <span></span> <kbd>Shift</kbd> + <kbd>Enter</kbd> for a new line</p>

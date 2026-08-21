@@ -32,7 +32,7 @@ function sanitizeReply(text) {
 
 function addMessage(text, role) {
   const message = document.createElement('article'); message.className = `message ${role}`;
-  const avatar = document.createElement('div'); avatar.className = 'message-avatar'; avatar.setAttribute('aria-hidden', 'true'); avatar.textContent = role.includes('user') ? 'You' : 'N';
+  const avatar = document.createElement('div'); avatar.className = 'message-avatar'; avatar.setAttribute('aria-hidden', 'true'); avatar.textContent = role.includes('user') ? 'You' : 'A';
   const content = document.createElement('div'); content.className = 'message-content';
   if (role.includes('assistant') && !role.includes('typing')) content.innerHTML = renderMarkdown(text); else { const paragraph = document.createElement('p'); paragraph.textContent = text; content.appendChild(paragraph); }
   message.append(avatar, content); messages.appendChild(message); messages.scrollTop = messages.scrollHeight;
@@ -40,12 +40,12 @@ function addMessage(text, role) {
   return message;
 }
 
-function addTypingIndicator() { const message = document.createElement('article'); message.className = 'message assistant typing'; message.innerHTML = '<div class="message-avatar" aria-hidden="true">N</div><div class="message-content" aria-label="Assistant is typing"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>'; messages.appendChild(message); messages.scrollTop = messages.scrollHeight; return message; }
-function setSendingState(sending) { isSending = sending; input.disabled = sending; sendButton.disabled = sending; clearButton.disabled = sending; statusText.innerHTML = sending ? '<span class="online-dot"></span>Nova is thinking' : '<span class="online-dot"></span>Powered by Groq'; }
+function addTypingIndicator() { const message = document.createElement('article'); message.className = 'message assistant typing'; message.innerHTML = '<div class="message-avatar" aria-hidden="true">A</div><div class="message-content" aria-label="Aira is typing"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>'; messages.appendChild(message); messages.scrollTop = messages.scrollHeight; return message; }
+function setSendingState(sending) { isSending = sending; input.disabled = sending; sendButton.disabled = sending; clearButton.disabled = sending; statusText.innerHTML = sending ? '<span class="online-dot"></span>Aira is thinking' : '<span class="online-dot"></span>Ready to chat'; }
 
 function responseFor(command) {
   const [name, ...argumentsList] = command.trim().split(/\s+/); const argument = argumentsList.join(' ');
-  switch (name.toLowerCase()) { case '/help': return 'Ask me anything, or try /status, /time, /about, /echo <text>, or /clear.'; case '/status': return 'The assistant is online and ready.'; case '/time': return `Your local time is ${new Date().toLocaleTimeString()}.`; case '/about': return 'Nova is a Groq-powered AI assistant running through a Node.js backend.'; case '/echo': return argument || 'Usage: /echo <text>'; default: return name.startsWith('/') ? `I do not know ${name}. Try /help for available commands.` : null; }
+  switch (name.toLowerCase()) { case '/help': return 'Ask me anything, or try /status, /time, /about, /echo <text>, or /clear.'; case '/status': return 'Aira is online and ready.'; case '/time': return `Your local time is ${new Date().toLocaleTimeString()}.`; case '/about': return 'Aira is a Groq-powered AI assistant running through a Node.js backend.'; case '/echo': return argument || 'Usage: /echo <text>'; default: return name.startsWith('/') ? `I do not know ${name}. Try /help for available commands.` : null; }
 }
 
 async function getAssistantReply(command) {

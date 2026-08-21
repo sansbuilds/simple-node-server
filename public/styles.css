@@ -25,3 +25,76 @@ button, textarea { font: inherit; } button { color: inherit; } svg { display: bl
 @keyframes rise-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } } @keyframes bounce { 0%, 60%, 100% { opacity: .35; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-4px); } }
 @media (max-width: 760px) { .app-shell { padding: 0 18px; }.app-header { height: 70px; }.powered-by { display: none; }.welcome-panel { padding: 58px 0 22px; }.welcome-orbit { top: 110px; right: 5px; transform: scale(.7); }.suggestions { grid-template-columns: repeat(2, 1fr); }.suggestion-card { min-height: 104px; }.message { max-width: 94%; }.composer-wrap { padding-bottom: 15px; } }
 @media (max-width: 440px) { .brand-name { font-size: 20px; }.header-actions { gap: 0; }.welcome-panel h1 { font-size: 45px; letter-spacing: -2.5px; }.welcome-copy { font-size: 14px; }.suggestions { grid-template-columns: 1fr; }.suggestion-card { min-height: 70px; }.suggestion-card > svg { margin-left: 8px; }.composer-hint { display: none; }.message p { font-size: 14px; } }
+
+/* Aira's warm, hand-designed layer over the existing chat layout. */
+:root {
+  --bg: #fff8f8;
+  --surface: #fffdfd;
+  --surface-raised: #fff1f3;
+  --line: #f0dfe2;
+  --text: #3f3037;
+  --muted: #8d737d;
+  --soft: #604d56;
+  --accent: #d98b9d;
+  --accent-bright: #c86f87;
+  --mint: #91b9aa;
+  --shadow: 0 18px 48px rgba(158, 93, 111, .12);
+}
+html { background: var(--bg); }
+body { color: var(--text); background: radial-gradient(circle at 8% 0%, #ffe7eb 0, transparent 28rem), radial-gradient(circle at 94% 80%, #eee8f7 0, transparent 25rem), var(--bg); font-family: "DM Sans", sans-serif; }
+.app-shell { width: min(100%, 1160px); padding: 0 34px; }
+.app-header { height: 82px; border-bottom-color: rgba(217, 139, 157, .22); }
+.brand { gap: 10px; color: var(--text); }
+.brand-mark { width: 30px; height: 30px; transform: none; align-items: center; justify-content: center; border: 1px solid #edbcc7; border-radius: 50% 50% 45% 55%; background: #ffe8ed; color: var(--accent-bright); font-size: 16px; box-shadow: 0 5px 12px rgba(217, 139, 157, .16); }
+.brand-mark span { width: auto; height: auto !important; border-radius: 0; background: none; }
+.brand-name { font-size: 24px; letter-spacing: -.8px; }
+.brand-name span { color: inherit; }
+.powered-by { color: var(--muted); }
+.online-dot { background: var(--mint); box-shadow: 0 0 8px rgba(145, 185, 170, .7); }
+.icon-button { color: var(--muted); }
+.icon-button:hover { color: var(--accent-bright); }
+.chat-main, .composer-wrap { width: min(100%, 900px); }
+.welcome-panel { padding: 70px 0 32px; }
+.eyebrow { color: var(--accent-bright); letter-spacing: 1.5px; }
+.welcome-panel h1 { color: var(--text); font-size: clamp(46px, 6vw, 72px); letter-spacing: -3.2px; }
+.welcome-panel h1 em { color: var(--accent-bright); }
+.welcome-copy { color: var(--muted); }
+.welcome-orbit { top: 112px; right: max(7vw, 32px); opacity: .65; }
+.welcome-orbit:before, .welcome-orbit:after { border-color: rgba(217, 139, 157, .3); }
+.welcome-orbit:after { border-color: rgba(166, 145, 194, .26); }
+.welcome-orbit span { background: var(--accent); box-shadow: 0 0 12px rgba(217, 139, 157, .45); }
+.welcome-orbit span:nth-child(2) { background: var(--mint); box-shadow: 0 0 12px rgba(145, 185, 170, .45); }
+.suggestions { gap: 12px; }
+.suggestion-card { min-height: 108px; border-color: var(--line); border-radius: 16px; background: rgba(255, 253, 253, .78); box-shadow: 0 8px 22px rgba(158, 93, 111, .05); }
+.suggestion-card:hover { border-color: #e4aebb; background: #fff; box-shadow: 0 12px 26px rgba(158, 93, 111, .12); transform: translateY(-3px); }
+.suggestion-card strong { color: var(--text); }
+.suggestion-card small { color: var(--muted); }
+.suggestion-card > svg { color: #cba8b2; }
+.suggestion-icon { border-radius: 10px; }
+.suggestion-icon.warm { background: #fff0d9; color: #d4934f; }
+.suggestion-icon.cool { background: #fff0f3; color: #c96f87; }
+.suggestion-icon.mint { background: #eaf4ef; color: #6b9c88; }
+.suggestion-icon.violet { background: #f0ebf7; color: #8f78aa; }
+.messages { gap: 22px; padding-top: 20px; }
+.message-avatar { border-color: #edc2cb; border-radius: 50%; background: #fff0f3; color: var(--accent-bright); }
+.message.user .message-avatar { border-color: #e9d7dc; background: #fff; color: var(--muted); }
+.message.user .message-content { border-color: #edc2cb; border-radius: 18px 5px 18px 18px; background: #fbe4e9; }
+.message.assistant .message-content { padding: 7px 0; }
+.message p { color: var(--soft); }
+.message code { border-color: var(--line); background: #fff1f3; color: #a2546b; }
+.message pre { border-color: var(--line); background: #4a3b43; box-shadow: 0 10px 24px rgba(82, 54, 64, .12); }
+.message pre code { background: transparent; color: #fff4f5; }
+.code-toolbar { border-bottom-color: rgba(255, 255, 255, .12); color: #dcbac4; }
+.copy-code { color: #f0d7de; }
+.copy-code:hover { color: white; }
+.typing-dot { background: var(--accent); }
+.message.error .message-content { color: #a84f5c; }
+.chat-form { border-color: #e7bec8; border-radius: 18px; background: rgba(255, 253, 253, .96); box-shadow: 0 0 0 4px rgba(217, 139, 157, .06), var(--shadow); }
+.chat-form:focus-within { border-color: #d98b9d; }
+.chat-form textarea { color: var(--text); }
+.chat-form textarea::placeholder { color: #b99da6; }
+.send-button { border-radius: 13px; background: var(--accent-bright); color: white; box-shadow: 0 6px 12px rgba(200, 111, 135, .2); }
+.send-button:hover { background: #b95f78; }
+.composer-hint { color: #a78d96; }
+.composer-hint kbd { border-color: #ead7dc; color: #a78d96; }
+@media (max-width: 760px) { .app-shell { padding: 0 18px; } .welcome-panel { padding-top: 54px; } .welcome-orbit { right: 0; } }
